@@ -1,0 +1,51 @@
+{%extends "layout.html" %}
+{%block content %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="card">
+                <div class="card-header">
+                        <h1 class="text-center">Prédiction de la rétention d'un employer</h1>
+                </div>
+                <div class="card-body">
+                        <form id="espece-form"  action="/form" method="POST">
+                            <div class="mb-3">
+                                <label for="satisfaction_level" class="form-label">satisfaction level:</label>
+                                <input type="text" class="form-control" id="satisfaction_level" name="satisfaction_level" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="time_spend_company" class="form-label">Time spend in company:</label>
+                                <input type="text" class="form-control" id="time_spend_company" name="time_spend_company" required>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="Work_accident" class="form-label">Work accident:</label>
+                                <input type="text" class="form-control" id="Work_accident" name="Work_accident" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="promotion_last_5years" class="form-label">promotion_last_5years:</label>
+                                <input type="text" class="form-control" id="promotion_last_5years" name="promotion_last_5years" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="salary" class="form-label">Salary:</label>
+                                <input type="text" class="form-control" id="salary" name="salary" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Prédire</button>
+                        </form>
+                
+                    </div>
+                    {% if result %}
+                    <div class="card-footer">
+                        <!-- Display the prediction result here -->
+                        <div id="prediction-result" class="mt-3">
+                            <img src="{{result}}">
+                            <!-- Result will be inserted here dynamically using JavaScript -->
+                        </div>
+                        
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+{%endblock%}
